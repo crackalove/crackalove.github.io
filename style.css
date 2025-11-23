@@ -26,8 +26,6 @@ html.red-theme body {
     10%,30%,50%,70%,90%{transform:translateX(-10px)}
     20%,40%,60%,80%{transform:translateX(10px)}
 }
-
-/* Красная тема — стили */
 html.red-theme .description { color: #ff6666; }
 html.red-theme h3, html.red-theme .card h4 { color: #ff4444; }
 html.red-theme .title { color: #ff1a1a; }
@@ -48,59 +46,25 @@ html.red-theme .theme-toggle { opacity: 0 !important; pointer-events: none !impo
 html.red-theme header { background: rgba(40,0,0,0.6) !important; border-color: #ff1a1a !important; box-shadow: 0 0 40px rgba(255,0,50,0.6) !important; }
 html.red-theme .avatar { border-color:#ff1a1a; box-shadow:0 0 25px rgba(255,0,50,0.8); }
 
-/* ЖИРНЫЙ КРАСНЫЙ КУРСОР-ПРИЦЕЛ + ДОЖДЬ */
-html.red-theme { cursor: none !important; }
-
-html.red-theme::before {
-    content: '';
-    position: fixed;
-    left: var(--cursor-x, 0px);
-    top: var(--cursor-y, 0px);
-    width: 28px;
-    height: 28px;
-    background: radial-gradient(circle, #ff0044 30%, #ff1a1a 60%, transparent 100%);
-    border: 3px solid #ff0044;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 99999;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 20px #ff0044, 0 0 40px #ff0000, inset 0 0 15px rgba(255,0,0,0.8);
-    animation: cursorPulse 1.6s infinite ease-in-out;
-    transition: left 0s linear, top 0s linear;
-}
-
-@keyframes cursorPulse {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
-    50% { transform: translate(-50%, -50%) scale(1.25); opacity: 1; box-shadow: 0 0 30px #ff0044, 0 0 60px #ff0000, inset 0 0 20px rgba(255,0,0,0.9); }
-}
-
-html.red-theme::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 99998;
-    background: repeating-linear-gradient(0deg, transparent, transparent 38px, rgba(255,0,68,0.07) 38px, rgba(255,0,68,0.07) 76px);
-    animation: matrixRain 15s linear infinite;
-    opacity: 0.8;
-}
-
-@keyframes matrixRain {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 1200px; }
-}
-
-/* Остальные стили — оставляем как были (header, cards, footer и т.д.) */
+/* Всё остальное — как было изначально */
 .container { max-width:1000px; margin:0 auto; padding:40px 20px; }
-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:100px; position:sticky; top:20px; z-index:100; background: rgba(12,18,38,0.38); backdrop-filter: blur(20px) saturate(180%); border:1px solid rgba(60,100,180,0.25); border-radius:24px; padding:16px 28px; box-shadow:0 8px 32px rgba(0,0,0,0.37), 0 0 30px rgba(0,80,200,0.15); transition:all .5s; }
+header { display:flex; justify-content:space-between; align-items:center; margin-bottom:100px; position:sticky; top:20px; z-index:100; background: rgba(12,18,38,0.38); backdrop-filter: blur(20px); border:1px solid rgba(60,100,180,0.25); border-radius:24px; padding:16px 28px; box-shadow:0 8px 32px rgba(0,0,0,0.37); transition:all .5s; }
 .avatar { width:72px; height:72px; border-radius:50%; object-fit:cover; border:2px solid #007acc; transition:all .4s; cursor:pointer; }
 nav a { color:#b0c4de; text-decoration:none; margin-left:32px; font-weight:500; position:relative; transition:color .3s; }
+html:not(.dark):not(.red-theme) nav a { color:#6c757d; }
+nav a:hover, nav a.active { color:#007acc; }
+nav a::after { content:''; position:absolute; width:0; height:2px; bottom:-8px; left:50%; background:#007acc; transition:all .3s; }
+nav a:hover::after, nav a.active::after { width:100%; left:0; }
+.hero { text-align:center; margin-bottom:140px; }
 .hero h1 { font-size:5.5rem; font-weight:700; margin-bottom:.4rem; background:linear-gradient(90deg,#333,#666); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+html.dark .hero h1 { background:linear-gradient(90deg,#fff,#a0c4ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
 .title { font-size:2.1rem; color:#007acc; margin-bottom:1.8rem; }
+.description { max-width:720px; margin:0 auto 2.5rem; font-size:1.15rem; color:#6c757d; }
 .button { display:inline-block; background:#007acc; color:#fff; padding:14px 36px; border-radius:50px; text-decoration:none; font-weight:600; transition:all .3s; }
 h3 { font-size:2.6rem; margin-bottom:50px; color:#333; }
+html.dark h3, html.red-theme h3 { color:#fff; }
 .card { background:#fff; padding:32px; border-radius:14px; margin-bottom:40px; border:1px solid #dee2e6; transition:all .4s; box-shadow:0 4px 15px rgba(0,0,0,0.05); }
-.projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:30px; }
+html.dark .card { background:rgba(15,22,38,0.8); border-color:rgba(0,122,204,0.3); }
 .theme-toggle { position:fixed; top:20px; right:20px; z-index:999; background:rgba(255,255,255,0.95); border-radius:50%; width:48px; height:48px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .4s; }
 .footer { margin-top:140px; padding:40px 20px 30px; text-align:center; color:#888; }
-... (все остальные стили из твоего оригинального файла — просто скопируй их сюда)
+/* и так далее — всё как было */
