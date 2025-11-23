@@ -1,120 +1,119 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Astro-Zen Style Site</title>
-  <style>
-    :root {
-      --bg: #0d0d0d;
-      --text: #ffffff;
-      --text-muted: #9c9c9c;
-      --card-bg: rgba(255, 255, 255, 0.05);
-      --card-border: rgba(255, 255, 255, 0.1);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      padding: 40px;
-      overflow-x: hidden;
-    }
-
-    /* Градиентные большие круги */
-    .bg-circle {
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      filter: blur(150px);
-      opacity: 0.4;
-      z-index: -1;
-    }
-    #circle1 { background: #6d28d9; top: -200px; right: -150px; }
-    #circle2 { background: #2563eb; bottom: -200px; left: -150px; }
-
-    header {
-      text-align: center;
-      margin-top: 60px;
-      margin-bottom: 80px;
-    }
-
-    header h1 {
-      font-size: 60px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      letter-spacing: -2px;
-    }
-
-    header p {
-      color: var(--text-muted);
-      font-size: 20px;
-      max-width: 600px;
-      margin: auto;
-    }
-
-    .cards {
-      display: grid;
-      gap: 20px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .card {
-      padding: 30px;
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      transition: 0.25s;
-      backdrop-filter: blur(10px);
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255,255,255,0.25);
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-      font-size: 24px;
-    }
-
-    .card p {
-      color: var(--text-muted);
-      font-size: 16px;
-      line-height: 1.6;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crackalove — Разработчик / Дизайнер</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <h1>crackalove — Разработчик / Дизайнер</h1>
+        <nav>
+            <a href="#home">Главная</a>
+            <a href="#experience">Опыт</a>
+            <a href="#projects">Проекты</a>
+            <a href="#about">Обо мне</a>
+            <a href="#contact">Контакты</a>
+        </nav>
+    </header>
 
-  <div id="circle1" class="bg-circle"></div>
-  <div id="circle2" class="bg-circle"></div>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <h1>crackalove</h1>
+            <p class="subtitle">Разработчик / Дизайнер</p>
+            <p>Привет! Я indie-разработчик из [твой город, страна]. Специализируюсь на [твои навыки, напр. веб-разработке, мобильных apps и дизайне]. Обожаю создавать крутые вещи, которые делают жизнь проще.</p>
+            <a href="mailto:твой@email.com" class="cta-button">Связаться</a>
+            <!-- Твоё фото: замени src на свой файл -->
+            <img src="images/avatar.jpg" alt="Фото crackalove" class="profile-img">
+        </section>
 
-  <header>
-    <h1>Zen UI</h1>
-    <p>Минималистичный, красивый и спокойный интерфейс в стиле Astro Zen.  
-       Идеально подходит для портфолио, блогов и личных проектов.</p>
-  </header>
+        <!-- Work Experience -->
+        <section id="experience" class="experience">
+            <h2>Опыт работы</h2>
+            <article class="job">
+                <h3>Компания 1 (напр. Freelance)</h3>
+                <h4>Lead Developer</h4>
+                <p>Январь 2023 — настоящее время</p>
+                <ul>
+                    <li>Разработал 5+ проектов для клиентов, увеличил производительность на 40%.</li>
+                    <li>Внедрил современные фреймворки вроде React и Node.js.</li>
+                    <li>Менторствовал junior-разработчиков.</li>
+                </ul>
+            </article>
+            <article class="job">
+                <h3>Компания 2</h3>
+                <h4>Frontend Developer</h4>
+                <p>Июнь 2021 — Декабрь 2022</p>
+                <ul>
+                    <li>Создал UI/UX для мобильного app, 10k+ скачиваний.</li>
+                    <li>Оптимизировал код, сократил время загрузки на 30%.</li>
+                    <li>Работал с командами в Agile.</li>
+                </ul>
+            </article>
+            <!-- Добавь больше, если нужно -->
+        </section>
 
-  <section class="cards">
-    <div class="card">
-      <h3>Лёгкий</h3>
-      <p>Простой код и быстрая загрузка — идеально для GitHub Pages.</p>
-    </div>
+        <!-- Featured Projects -->
+        <section id="projects" class="projects">
+            <h2>Избранные проекты</h2>
+            <div class="projects-grid">
+                <article class="project">
+                    <h3>Проект 1: Мой Крутой App</h3>
+                    <p>Описание: Приложение для [что-то крутое, напр. трекинга привычек]. Стек: React Native, Firebase.</p>
+                    <!-- Твоё фото проекта -->
+                    <img src="images/project1.jpg" alt="Проект 1">
+                    <div class="project-links">
+                        <a href="https://github.com/crackalove/project1">GitHub</a>
+                        <a href="https://demo.link">Демо</a>
+                    </div>
+                </article>
+                <article class="project">
+                    <h3>Проект 2: Веб-сайт</h3>
+                    <p>Описание: Портфолио-сайт с анимациями. Стек: HTML/CSS/JS, Astro.</p>
+                    <img src="images/project2.jpg" alt="Проект 2">
+                    <div class="project-links">
+                        <a href="https://github.com/crackalove/project2">GitHub</a>
+                        <a href="https://demo.link">Демо</a>
+                    </div>
+                </article>
+                <article class="project">
+                    <h3>Проект 3: Игра</h3>
+                    <p>Описание: Инди-игра на Unity. 5k+ игроков на itch.io.</p>
+                    <img src="images/project3.jpg" alt="Проект 3">
+                    <div class="project-links">
+                        <a href="https://github.com/crackalove/project3">GitHub</a>
+                        <a href="https://demo.link">Демо</a>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-    <div class="card">
-      <h3>Минималистичный</h3>
-      <p>Ничего лишнего: чистые линии, плавные тени и мягкие цвета.</p>
-    </div>
+        <!-- About -->
+        <section id="about" class="about">
+            <h2>Обо мне</h2>
+            <p>Привет, я crackalove! Люблю кодить, дизайн и кофе. В свободное время играю в игры, хожу в походы и экспериментирую с AI. Мои навыки: [список, напр. JS, Python, Figma].</p>
+            <hr>
+            <p>crackalove</p>
+            <!-- Ссылки на соцсети -->
+            <div class="social-links">
+                <a href="https://github.com/crackalove">GitHub</a>
+                <a href="https://twitter.com/crackalove">Twitter</a>
+                <a href="https://t.me/crackalove">Telegram</a>
+            </div>
+        </section>
 
-    <div class="card">
-      <h3>Адаптивный</h3>
-      <p>Корректно смотрится на любом устройстве — от телефона до 4K монитора.</p>
-    </div>
-  </section>
+        <!-- Contact -->
+        <section id="contact" class="contact">
+            <h2>Контакты</h2>
+            <p>Напиши мне: <a href="mailto:твой@email.com">твой@email.com</a></p>
+            <p>Или через соцсети выше.</p>
+        </section>
+    </main>
 
+    <footer>
+        <p>&copy; 2025 crackalove. Сделано с ❤️ на GitHub Pages.</p>
+    </footer>
 </body>
 </html>
