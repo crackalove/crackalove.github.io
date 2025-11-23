@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Astro-Zen Style Site</title>
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --text: #ffffff;
+      --text-muted: #9c9c9c;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --card-border: rgba(255, 255, 255, 0.1);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 40px;
+      overflow-x: hidden;
+    }
+
+    /* Градиентные большие круги */
+    .bg-circle {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      filter: blur(150px);
+      opacity: 0.4;
+      z-index: -1;
+    }
+    #circle1 { background: #6d28d9; top: -200px; right: -150px; }
+    #circle2 { background: #2563eb; bottom: -200px; left: -150px; }
+
+    header {
+      text-align: center;
+      margin-top: 60px;
+      margin-bottom: 80px;
+    }
+
+    header h1 {
+      font-size: 60px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: -2px;
+    }
+
+    header p {
+      color: var(--text-muted);
+      font-size: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .cards {
+      display: grid;
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .card {
+      padding: 30px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      transition: 0.25s;
+      backdrop-filter: blur(10px);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,0.25);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="circle1" class="bg-circle"></div>
+  <div id="circle2" class="bg-circle"></div>
+
+  <header>
+    <h1>Zen UI</h1>
+    <p>Минималистичный, красивый и спокойный интерфейс в стиле Astro Zen.  
+       Идеально подходит для портфолио, блогов и личных проектов.</p>
+  </header>
+
+  <section class="cards">
+    <div class="card">
+      <h3>Лёгкий</h3>
+      <p>Простой код и быстрая загрузка — идеально для GitHub Pages.</p>
+    </div>
+
+    <div class="card">
+      <h3>Минималистичный</h3>
+      <p>Ничего лишнего: чистые линии, плавные тени и мягкие цвета.</p>
+    </div>
+
+    <div class="card">
+      <h3>Адаптивный</h3>
+      <p>Корректно смотрится на любом устройстве — от телефона до 4K монитора.</p>
+    </div>
+  </section>
+
+</body>
+</html>
