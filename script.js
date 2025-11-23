@@ -17,28 +17,23 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 
-    // Подсветка активного пункта
-    const navLinks = document.querySelectorAll('nav a');
-    function setActive() {
-        let current = '';
-        sections.forEach(s => {
-            if (window.pageYOffset >= s.offsetTop - 200) current = s.getAttribute('id');
-        });
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
-        });
-    }
-    window.addEventListener('scroll', setActive);
-    setActive();
-
-    // ТЕМА
+    // Обычная смена темы (солнце/луна)
     if (localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
     }
 
     document.getElementById('theme-toggle').addEventListener('click', () => {
         document.documentElement.classList.toggle('dark');
+        document.documentElement.classList.remove('red-theme');
         localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    });
+
+    // КЛИК ПО АВАТАРКЕ = КРАСНАЯ ТЕМА + ТРЯСКА
+    document.getElementById('theme-avatar').addEventListener('click', () => {
+        document.documentElement.classList.toggle('red-theme');
+        if (document.documentElement.classList.contains('red-theme')) {
+            document.documentElement.classList.remove('dark');
+            localStorage.theme = 'light';
+        }
     });
 });
