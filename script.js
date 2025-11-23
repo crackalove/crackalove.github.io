@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Анимации появления секций при скролле
+    // Анимации появления секций
     const sections = document.querySelectorAll('.animate-section');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -17,29 +17,38 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 
-    // Загрузка сохранённой темы при старте
+    // Загрузка темы при старте
     if (localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
     }
 
-    // Кнопка луна/солнце — обычное переключение светлая ↔ тёмная
+    // Кнопка луна/солнце
     document.getElementById('theme-toggle').addEventListener('click', () => {
         document.documentElement.classList.toggle('dark');
         document.documentElement.classList.remove('red-theme');
         localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
     });
 
-    // Клик по аватарке — включаем/выключаем красную тему
+    // Клик по аватарке — красная тема + тряска при входе и выходе
     document.getElementById('theme-avatar').addEventListener('click', () => {
-        if (document.documentElement.classList.contains('red-theme')) {
-            // Выход из красной → сразу в тёмную тему (как ты и хотел)
-            document.documentElement.classList.remove('red-theme');
-            document.documentElement.classList.add('dark');
+        const html = document.documentElement;
+
+        if (html.classList.contains('red-theme')) {
+            // ВЫХОД ИЗ КРАСНОЙ → тёмная + тряска
+            html.classList.remove('red-theme');
+            html.classList.add('dark');
+            html.style.animation = 'shake 0.6s ease-in-out';
             localStorage.theme = 'dark';
         } else {
-            // Вход в красную тему
-            document.documentElement.classList.add('red-theme');
-            document.documentElement.classList.remove('dark');
+            // ВХОД В КРАСНУЮ + тряска
+            html.classList.add('red-theme');
+            html.classList.remove('dark');
+            html.style.animation = 'shake 0.6s ease-in-out';
         }
+
+        // Убираем анимацию после завершения, чтобы можно было трясти снова
+        setTimeout(() => {
+            html.style.animation = '';
+        }, 700);
     });
 });
