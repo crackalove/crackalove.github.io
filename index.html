@@ -3,117 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>crackalove — Разработчик / Дизайнер</title>
+    <title>cracka</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>crackalove — Разработчик / Дизайнер</h1>
-        <nav>
-            <a href="#home">Главная</a>
-            <a href="#experience">Опыт</a>
-            <a href="#projects">Проекты</a>
-            <a href="#about">Обо мне</a>
-            <a href="#contact">Контакты</a>
-        </nav>
-    </header>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <img src="avatar.jpg" alt="cracka" class="avatar">
+            <nav>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#about">About</a>
+            </nav>
+        </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <h1>crackalove</h1>
-            <p class="subtitle">Разработчик / Дизайнер</p>
-            <p>Привет! Я indie-разработчик из [твой город, страна]. Специализируюсь на [твои навыки, напр. веб-разработке, мобильных apps и дизайне]. Обожаю создавать крутые вещи, которые делают жизнь проще.</p>
-            <a href="mailto:твой@email.com" class="cta-button">Связаться</a>
-            <!-- Твоё фото: замени src на свой файл -->
-            <img src="images/avatar.jpg" alt="Фото crackalove" class="profile-img">
+        <!-- Hero -->
+        <section class="hero">
+            <h1>cracka</h1>
+            <h2 class="title">Reverse Engineer & Cybersecurity</h2>
+            <p class="description">
+                Реверс-инженер и начинающий специалист по кибербезопасности.<br>
+                Работаю с анализом бинарей, изучением внутренней логики программ и разбором систем на низком уровне.<br>
+                Два года занимаюсь OSINT-исследованиями: собираю, проверяю и интерпретирую данные для практических задач информационной безопасности.<br>
+                Сосредоточен на техническом анализе, точности и глубоком понимании механизмов работы программного обеспечения.
+            </p>
+            <a href="mailto:crackalove1@gmail.com" class="button">Связаться</a>
         </section>
 
-        <!-- Work Experience -->
-        <section id="experience" class="experience">
-            <h2>Опыт работы</h2>
-            <article class="job">
-                <h3>Компания 1 (напр. Freelance)</h3>
-                <h4>Lead Developer</h4>
-                <p>Январь 2023 — настоящее время</p>
+        <!-- Experience -->
+        <section id="experience">
+            <h3>Experience</h3>
+            <div class="card">
+                <h4>Independent Researcher</h4>
+                <p class="role">Reverse Engineering • OSINT • Low-level Analysis</p>
+                <p class="date">2022 — настоящее время</p>
                 <ul>
-                    <li>Разработал 5+ проектов для клиентов, увеличил производительность на 40%.</li>
-                    <li>Внедрил современные фреймворки вроде React и Node.js.</li>
-                    <li>Менторствовал junior-разработчиков.</li>
+                    <li>Статический и динамический анализ бинарных файлов (x86/x64, ELF, PE)</li>
+                    <li>Реверс вредоносного ПО и закрытых протоколов</li>
+                    <li>OSINT-расследования: поиск, верификация и корреляция данных</li>
+                    <li>Исследование уязвимостей и написание эксплоитов</li>
+                    <li>Ведение технического блога по реверс-инжинирингу</li>
                 </ul>
-            </article>
-            <article class="job">
-                <h3>Компания 2</h3>
-                <h4>Frontend Developer</h4>
-                <p>Июнь 2021 — Декабрь 2022</p>
-                <ul>
-                    <li>Создал UI/UX для мобильного app, 10k+ скачиваний.</li>
-                    <li>Оптимизировал код, сократил время загрузки на 30%.</li>
-                    <li>Работал с командами в Agile.</li>
-                </ul>
-            </article>
-            <!-- Добавь больше, если нужно -->
+            </div>
         </section>
 
-        <!-- Featured Projects -->
-        <section id="projects" class="projects">
-            <h2>Избранные проекты</h2>
+        <!-- Projects -->
+        <section id="projects">
+            <h3>Projects</h3>
             <div class="projects-grid">
-                <article class="project">
-                    <h3>Проект 1: Мой Крутой App</h3>
-                    <p>Описание: Приложение для [что-то крутое, напр. трекинга привычек]. Стек: React Native, Firebase.</p>
-                    <!-- Твоё фото проекта -->
-                    <img src="images/project1.jpg" alt="Проект 1">
-                    <div class="project-links">
-                        <a href="https://github.com/crackalove/project1">GitHub</a>
-                        <a href="https://demo.link">Демо</a>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80&fit=crop" alt="ReChamo blog">
+                    <div class="overlay">
+                        <h4>ReChamo</h4>
+                        <p>Блог по реверс-инжинирингу, разборы бинарей, туториалы, исследования</p>
+                        <a href="https://t.me/ReChamo" target="_blank" class="link">Telegram →</a>
                     </div>
-                </article>
-                <article class="project">
-                    <h3>Проект 2: Веб-сайт</h3>
-                    <p>Описание: Портфолио-сайт с анимациями. Стек: HTML/CSS/JS, Astro.</p>
-                    <img src="images/project2.jpg" alt="Проект 2">
-                    <div class="project-links">
-                        <a href="https://github.com/crackalove/project2">GitHub</a>
-                        <a href="https://demo.link">Демо</a>
-                    </div>
-                </article>
-                <article class="project">
-                    <h3>Проект 3: Игра</h3>
-                    <p>Описание: Инди-игра на Unity. 5k+ игроков на itch.io.</p>
-                    <img src="images/project3.jpg" alt="Проект 3">
-                    <div class="project-links">
-                        <a href="https://github.com/crackalove/project3">GitHub</a>
-                        <a href="https://demo.link">Демо</a>
-                    </div>
-                </article>
+                </div>
+                <!-- При добавлении новых проектов просто копируй блок .project-card -->
             </div>
         </section>
 
-        <!-- About -->
+        <!-- About + контакты -->
         <section id="about" class="about">
-            <h2>Обо мне</h2>
-            <p>Привет, я crackalove! Люблю кодить, дизайн и кофе. В свободное время играю в игры, хожу в походы и экспериментирую с AI. Мои навыки: [список, напр. JS, Python, Figma].</p>
-            <hr>
-            <p>crackalove</p>
-            <!-- Ссылки на соцсети -->
-            <div class="social-links">
-                <a href="https://github.com/crackalove">GitHub</a>
-                <a href="https://twitter.com/crackalove">Twitter</a>
-                <a href="https://t.me/crackalove">Telegram</a>
+            <h3>About</h3>
+            <p>Инструменты: IDA Pro, Ghidra, x64dbg, Radare2, Binary Ninja, Wireshark, Maltego, Python.<br>Интересы: низкоуровневое программирование, криптография, защита и атака.</p>
+            <div class="social">
+                <a href="https://github.com/crackalove" target="_blank">GitHub</a>
+                <a href="https://t.me/crackalove" target="_blank">Telegram</a>
+                <a href="https://t.me/ReChamo" target="_blank">ReChamo Blog</a>
             </div>
         </section>
-
-        <!-- Contact -->
-        <section id="contact" class="contact">
-            <h2>Контакты</h2>
-            <p>Напиши мне: <a href="mailto:твой@email.com">твой@email.com</a></p>
-            <p>Или через соцсети выше.</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 crackalove. Сделано с ❤️ на GitHub Pages.</p>
-    </footer>
+    </div>
 </body>
 </html>
