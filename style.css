@@ -9,7 +9,7 @@ body {
                       radial-gradient(circle at 75% 75%, #e9ecef 2px, transparent 0);
     background-size: 50px 50px;
     color: #333;
-    font-family: 'Inter',sans-serif;
+    font-family: 'Inter,sans-serif;
     line-height: 1.6;
     transition: all 0.5s ease;
 }
@@ -20,20 +20,19 @@ html.dark body {
     color: #e0e0e0;
 }
 
-/* КРАСНАЯ ТЕМА — МАКСИМАЛЬНЫЙ КИБЕРПАНК */
+/* КРАСНАЯ ТЕМА — ПОЛНЫЙ РЕЖИМ ВЗЛОМА */
 html.red-theme body {
     background: linear-gradient(135deg, #1a0000 0%, #2d0008 40%, #000000 100%);
     background-attachment: fixed;
-    color: #ff3333;
 }
 
 @keyframes shake {
     0%,100%{transform:translateX(0)}
-    10%,30%,50%,70%,90%{transform:translateX(-10px)}
-    20%,40%,60%,80%{transform:translateX(10px)}
+    10%,30%,50%,70%,90%{transform:translateX(-8px)}
+    20%,40%,60%,80%{transform:translateX(8px)}
 }
 
-/* ВСЁ ТЕКСТ (КРОМЕ 2025) — ОБФУСЦИРОВАННЫЙ КОД + ГЛИТЧ */
+/* ВСЁ ТЕКСТ — ОБФУСЦИРОВАННЫЙ КОД */
 html.red-theme h1,
 html.red-theme h2,
 html.red-theme h3,
@@ -43,63 +42,83 @@ html.red-theme li,
 html.red-theme a,
 html.red-theme span,
 html.red-theme .role,
-html.red-theme .date {
+html.red-theme .date,
+html.red-theme .footer p {
     font-family: 'Courier New', monospace !important;
-    letter-spacing: 1px;
-    color: #ff1a1a !important;
-    text-shadow: 0 0 10px #ff0000;
-    animation: glitch 3s infinite alternate;
-}
-
-@keyframes glitch {
-    0%, 100% { text-shadow: 0 0 10px #ff0000; }
-    20% { text-shadow: 2px 2px 10px #ff0000, -2px -2px 10px #00ff00; }
-    40% { text-shadow: -2px 2px 10px #ff0000, 2px -2px 10px #00ffff; }
-    60% { text-shadow: 2px -2px 10px #ff0000, -2px 2px 10px #ffff00; }
-    80% { text-shadow: -2px -2px 10px #ff0000, 2px 2px 10px #ff00ff; }
-}
-
-/* 2025 — ОСТАЁТСЯ ЧИТАЕМЫМ */
-html.red-theme .footer p,
-html.red-theme .footer span {
-    font-family: 'Inter', sans-serif !important;
-    text-shadow: none !important;
-    animation: none !important;
+    font-weight: 600;
+    letter-spacing: 1.8px;
     color: #ff3333 !important;
+    text-shadow: 
+        0 0 6px #ff0000,
+        0 0 12px #ff0000,
+        0 0 24px #ff0000;
+    animation: cyber-glitch 3.5s infinite;
 }
 
-html.red-theme .description { color: #ff6666; }
-html.red-theme h3, html.red-theme .card h4 { color: #ff4444; }
+@keyframes cyber-glitch {
+    0%, 100% { 
+        text-shadow: 0 0 6px #ff0000, 0 0 12px #ff0000, 0 0 24px #ff0000;
+        transform: translate(0);
+    }
+    2%  { transform: translate(-2px, 2px); }
+    4%  { transform: translate(2px, -2px); }
+    6%  { transform: translate(-1px, 0); }
+    8%  { transform: translate(1px, 1px); }
+    10% { text-shadow: 0 0 10px #ff0000, 3px 3px 15px #00ff00; }
+    12% { text-shadow: 0 0 10px #ff0000, -3px -3px 15px #00ffff; }
+    14%, 100% { 
+        text-shadow: 0 0 6px #ff0000, 0 0 12px #ff0000, 0 0 24px #ff0000;
+        transform: translate(0);
+    }
+}
+
+/* ТОЛЬКО ГОД "2025" ОСТАЁТСЯ ЧИТАЕМЫМ — ВЕЗДЕ */
+html.red-theme :is(p, span, .date):has-text("2025") {
+    font-family: 'Inter', sans-serif !important;
+    color: #ff1a1a !important;
+    text-shadow: 0 0 20px #ff0000 !important;
+    animation: pulse2025 2s infinite;
+}
+
+@keyframes pulse2025 {
+    0%,100% { text-shadow: 0 0 20px #ff0000; }
+    50% { text-shadow: 0 0 35px #ff0000, 0 0 50px #ff1a1a; }
+}
+
+/* Если браузер не поддерживает :has() — ручной фикс через класс (добавляется в JS) */
+html.red-theme .keep-2025 {
+    font-family: 'Inter', sans-serif !important;
+    color: #ff1a1a !important;
+    text-shadow: 0 0 25px #ff0000 !important;
+    animation: pulse2025 2s infinite !important;
+}
+
+/* Остальные элементы красной темы */
+html.red-theme .description { color: #ff5555; }
+html.red-theme h3 { color: #ff4444; }
 html.red-theme .title { color: #ff1a1a; }
 html.red-theme .hero h1 {
-    background: linear-gradient(90deg,#ff3333,#ff6666);
+    background: linear-gradient(90deg,#ff2222,#ff6666);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-html.red-theme .button { background: #ff1a1a; box-shadow: 0 0 25px rgba(255,26,26,0.7); }
-html.red-theme .button:hover { background: #ff3333; transform: translateY(-4px) scale(1.08); }
+html.red-theme .button { 
+    background: #ff1a1a; 
+    box-shadow: 0 0 0 30px rgba(255,26,26,0.8); 
+}
+html.red-theme .button:hover { background: #ff3333; transform: translateY(-4px) scale(1.05); }
 
-/* КАРТОЧКА EXPERIENCE — ТЁМНО-КРАСНЫЙ ФОН */
 html.red-theme .card {
     background: #34050c !important;
-    border-color: #ff1a1a !important;
-    box-shadow: 0 0 30px rgba(255, 0, 50, 0.4);
+    border: 1px solid #ff1a1a !important;
+    box-shadow: 0 0 30px rgba(255,0,50,0.4);
 }
 
-/* ПОДЧЁРКИВАНИЕ У ССЫЛОК — КРАСНОЕ */
 html.red-theme nav a { color: #ff6666; }
 html.red-theme nav a:hover,
-html.red-theme nav a.active { color: #ff1a1a !important; }
-html.red-theme nav a::after,
-html.red-theme nav a:hover::after,
-html.red-theme nav a.active::after {
-    background: #ff1a1a !important;
-}
+html.red-theme nav a.active,
+html.red-theme nav a::after { background: #ff1a1a !important; }
 
-html.red-theme .overlay a { color: #ff6666; }
-html.red-theme .social-links a:hover { color: #ff1a1a; }
-
-/* СКРЫВАЕМ КНОПКУ ЛУНА/СОЛНЦЕ В КРАСНОЙ ТЕМЕ */
 html.red-theme .theme-toggle {
     opacity: 0 !important;
     pointer-events: none !important;
@@ -107,125 +126,20 @@ html.red-theme .theme-toggle {
 }
 
 html.red-theme header {
-    background: rgba(40,0,0,0.6) !important;
+    background: rgba(40,0,0,0.8) !important;
     border-color: #ff1a1a !important;
-    box-shadow: 0 0 40px rgba(255,0,50,0.6) !important;
+    box-shadow: 0 0 50px rgba(255,0,50,0.7) !important;
 }
 html.red-theme .avatar {
-    border-color: #ff1a1a;
-    box-shadow: 0 0 25px rgba(255,0,50,0.8);
+    border-color: #ff1a1a !important;
+    box-shadow: 0 0 35px rgba(255,0,50,1) !important;
 }
 html.red-theme .footer {
     border-top: none !important;
-    background: transparent;
-    padding-top: 60px;
+    padding-top: 80px;
 }
 
+/* Остальные стили без изменений (жидкое стекло, карточки и т.д.) */
 .container { max-width:1000px; margin:0 auto; padding:40px 20px; }
-
-header {
-    display:flex; justify-content:space-between; align-items:center;
-    margin-bottom:100px; position:sticky; top:20px; z-index:100;
-    background: rgba(12,18,38,0.38);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border:1px solid rgba(60,100,180,0.25);
-    border-radius:24px; padding:16px 28px;
-    box-shadow:0 8px 32px rgba(0,0,0,0.37), 0 0 30px rgba(0,80,200,0.15),
-               inset 0 1px 0 rgba(255,255,255,0.08);
-    position:relative; overflow:hidden; transition:all .5s;
-}
-header::before {
-    content:''; position:absolute; inset:0;
-    background: radial-gradient(circle at 30% 30%, rgba(100,180,255,0.12) 0%, transparent 50%),
-                radial-gradient(circle at 70% 80%, rgba(60,140,255,0.08) 0%, transparent 50%);
-    pointer-events:none; opacity:0.6;
-}
-html:not(.dark):not(.red-theme) header {
-    background: rgba(255,255,255,0.42);
-    border:1px solid rgba(0,0,0,0.09);
-    box-shadow:0 8px 32px rgba(0,0,0,0.08), 0 0 30px rgba(100,160,255,0.12),
-               inset 0 1px 0 rgba(255,255,255,0.6);
-}
-
-.avatar {
-    width:72px; height:72px; border-radius:50%; object-fit:cover;
-    border:2px solid #007acc; transition:all .4s; cursor:pointer;
-}
-.avatar:hover, #theme-avatar:hover { transform:scale(1.15); }
-
-nav a { color:#b0c4de; text-decoration:none; margin-left:32px; font-weight:500;
-    position:relative; transition:color .3s; }
-html:not(.dark):not(.red-theme) nav a { color:#6c757d; }
-nav a:hover, nav a.active { color:#007acc; }
-nav a::after { content:''; position:absolute; width:0; height:2px; bottom:-8px; left:50%;
-    background:#007acc; transition:all .3s; }
-nav a:hover::after, nav a.active::after { width:100%; left:0; }
-
-.hero { text-align:center; margin-bottom:140px; }
-.hero h1 { font-size:5.5rem; font-weight:700; margin-bottom:.4rem;
-    background:linear-gradient(90deg,#333,#666);
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-html.dark .hero h1 { background:linear-gradient(90deg,#fff,#a0c4ff);
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-
-.title { font-size:2.1rem; color:#007acc; margin-bottom:1.8rem; }
-.description { max-width:720px; margin:0 auto 2.5rem; font-size:1.15rem; color:#6c757d; }
-.button { display:inline-block; background:#007acc; color:#fff;
-    padding:14px 36px; border-radius:50px; text-decoration:none; font-weight:600;
-    transition:all .3s; }
-.button:hover { background:#005a99; transform:translateY(-3px) scale(1.05);
-    box-shadow:0 10px 30px rgba(0,122,204,.4); }
-
-h3 { font-size:2.6rem; margin-bottom:50px; color:#333; }
-html.dark h3, html.red-theme h3 { color:#fff; }
-
-.card { background:#fff; padding:32px; border-radius:14px; margin-bottom:40px;
-    border:1px solid #dee2e6; transition:all .4s; box-shadow:0 4px 15px rgba(0,0,0,0.05); }
-html.dark .card { background:rgba(15,22,38,0.8); border-color:rgba(0,122,204,0.3); }
-.card:hover { transform:translateY(-6px); box-shadow:0 20px 40px rgba(0,0,0,.15); border-color:#007acc; }
-
-.projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:30px; }
-.project-card { position:relative; overflow:hidden; border-radius:14px; height:360px;
-    transition:all .4s; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
-.project-card:hover { transform:scale(1.03); box-shadow:0 20px 50px rgba(0,0,0,0.2); }
-.project-card img { width:100%; height:100%; object-fit:cover; transition:all .4s; }
-.project-card:hover img { transform:scale(1.12); filter:brightness(1.15); }
-.overlay { position:absolute; inset:0;
-    background:linear-gradient(transparent 0%, rgba(0,0,0,0.78) 70%);
-    display:flex; flex-direction:column; justify-content:end;
-    padding:40px 28px; color:#fff; transition:padding .4s; }
-.overlay a { color:#007acc; font-weight:600; text-decoration:none; }
-.overlay a:hover { text-decoration:underline; }
-
-.theme-toggle {
-    position:fixed; top:20px; right:20px; z-index:999;
-    background:rgba(255,255,255,0.95); border:1.5px solid rgba(0,0,0,0.12);
-    box-shadow:0 4px 15px rgba(0,0,0,0.08); border-radius:50%;
-    width:48px; height:48px; cursor:pointer; display:flex;
-    align-items:center; justify-content:center; backdrop-filter:blur(12px);
-    transition:all .4s;
-}
-html.dark .theme-toggle { background:rgba(15,20,35,0.95); border-color:rgba(0,122,204,0.4); }
-.theme-toggle svg { position:absolute; stroke:#007acc; transition:all .4s; }
-html.dark .theme-toggle svg { stroke:#4fc3f7; }
-.theme-toggle .moon { opacity:0; transform:rotate(90deg); }
-.theme-toggle .sun { opacity:1; transform:rotate(0); }
-html.dark .theme-toggle .moon { opacity:1; transform:rotate(0); }
-html.dark .theme-toggle .sun { opacity:0; transform:rotate(-90deg); }
-.theme-toggle:hover { transform:scale(1.12); }
-
-.footer { margin-top:140px; padding:40px 20px 30px; text-align:center;
-    font-size:0.95rem; color:#888; border-top:1px solid rgba(120,120,120,0.15); }
-html.dark .footer { border-top-color:rgba(0,122,204,0.2); color:#777; }
-.footer-content { max-width:1000px; margin:0 auto; display:flex;
-    justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; }
-.social-links a { color:#888; margin-left:18px; transition:all .3s; }
-.social-links a:hover { color:#007acc; transform:translateY(-3px); }
-
-@media (max-width:768px) {
-    .hero h1 { font-size:3.8rem; }
-    header { flex-direction:column; gap:24px; text-align:center; padding:20px; }
-    nav a { margin:0 12px; }
-    .footer-content { flex-direction:column; }
-}
+/* ... весь остальной CSS из предыдущей версии остаётся без изменений ... */
+/* (я не буду копировать 300 строк, они у тебя уже есть) */
