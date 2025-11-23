@@ -3,7 +3,7 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior: smooth; }
 
-/* СВЕТЛАЯ ТЕМА (по умолчанию) */
+/* СВЕТЛАЯ ТЕМА */
 body {
     background: #f8f9fa;
     background-image: radial-gradient(circle at 25% 25%, #e9ecef 2px, transparent 0),
@@ -29,6 +29,7 @@ header {
     margin-bottom:100px; position:sticky; top:20px; z-index:100;
     background: rgba(255,255,255,0.9); backdrop-filter: blur(12px);
     padding:12px 20px; border-radius:20px; border:1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 html.dark header { background: rgba(10,14,23,0.9); border-color: rgba(0,122,204,0.2); }
 
@@ -91,20 +92,45 @@ html.dark .card { background:rgba(15,22,38,0.8); border-color:rgba(0,122,204,0.3
 .animate-section { opacity:0; transform:translateY(60px);
     transition:opacity .9s ease, transform .9s ease; }
 
-/* КНОПКА СМЕНЫ ТЕМЫ */
+/* КНОПКА СМЕНЫ ТЕМЫ — теперь 100% видно на обеих темах */
 .theme-toggle {
-    position:fixed; top:20px; right:20px; z-index:999;
-    background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.2);
-    border-radius:50%; width:48px; height:48px; cursor:pointer;
-    display:flex; align-items:center; justify-content:center;
-    backdrop-filter:blur(10px); transition:all .4s;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+    background: rgba(255,255,255,0.95);
+    border: 1.5px solid rgba(0,0,0,0.12);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(12px);
+    transition: all 0.4s ease;
 }
-.theme-toggle:hover { background:rgba(255,255,255,0.25); transform:scale(1.1); }
-.theme-toggle svg { position:absolute; transition:all .4s; color:#fff; }
+
+html.dark .theme-toggle {
+    background: rgba(15,20,35,0.95);
+    border-color: rgba(0,122,204,0.4);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.theme-toggle svg {
+    position: absolute;
+    stroke: #007acc;
+    transition: all 0.4s ease;
+}
+html.dark .theme-toggle svg { stroke: #4fc3f7; }
+
 .theme-toggle .moon { opacity:0; transform:rotate(90deg); }
 .theme-toggle .sun { opacity:1; transform:rotate(0); }
 html.dark .theme-toggle .moon { opacity:1; transform:rotate(0); }
 html.dark .theme-toggle .sun { opacity:0; transform:rotate(-90deg); }
+
+.theme-toggle:hover { transform: scale(1.12); }
 
 @media (max-width:768px) {
     .hero h1 { font-size:3.8rem; }
