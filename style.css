@@ -3,7 +3,6 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior: smooth; }
 
-/* СВЕТЛАЯ ТЕМА */
 body {
     background: #f8f9fa;
     background-image: radial-gradient(circle at 25% 25%, #e9ecef 2px, transparent 0),
@@ -14,7 +13,6 @@ body {
     line-height: 1.6;
 }
 
-/* ТЁМНАЯ ТЕМА */
 html.dark body {
     background: linear-gradient(135deg, #0a0e17 0%, #0d1526 50%, #0a1a2f 100%);
     background-attachment: fixed;
@@ -92,48 +90,46 @@ html.dark .card { background:rgba(15,22,38,0.8); border-color:rgba(0,122,204,0.3
 .animate-section { opacity:0; transform:translateY(60px);
     transition:opacity .9s ease, transform .9s ease; }
 
-/* КНОПКА СМЕНЫ ТЕМЫ — теперь 100% видно на обеих темах */
+/* КНОПКА СМЕНЫ ТЕМЫ */
 .theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 999;
-    background: rgba(255,255,255,0.95);
-    border: 1.5px solid rgba(0,0,0,0.12);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(12px);
-    transition: all 0.4s ease;
+    position: fixed; top:20px; right:20px; z-index:999;
+    background: rgba(255,255,255,0.95); border:1.5px solid rgba(0,0,0,0.12);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-radius:50%;
+    width:48px; height:48px; cursor:pointer; display:flex;
+    align-items:center; justify-content:center; backdrop-filter:blur(12px);
+    transition:all .4s ease;
 }
-
 html.dark .theme-toggle {
-    background: rgba(15,20,35,0.95);
-    border-color: rgba(0,122,204,0.4);
+    background: rgba(15,20,35,0.95); border-color:rgba(0,122,204,0.4);
     box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
-
-.theme-toggle svg {
-    position: absolute;
-    stroke: #007acc;
-    transition: all 0.4s ease;
-}
-html.dark .theme-toggle svg { stroke: #4fc3f7; }
-
+.theme-toggle svg { position:absolute; stroke:#007acc; transition:all .4s ease; }
+html.dark .theme-toggle svg { stroke:#4fc3f7; }
 .theme-toggle .moon { opacity:0; transform:rotate(90deg); }
 .theme-toggle .sun { opacity:1; transform:rotate(0); }
 html.dark .theme-toggle .moon { opacity:1; transform:rotate(0); }
 html.dark .theme-toggle .sun { opacity:0; transform:rotate(-90deg); }
+.theme-toggle:hover { transform:scale(1.12); }
 
-.theme-toggle:hover { transform: scale(1.12); }
+/* ФУТЕР */
+.footer {
+    margin-top: 140px; padding: 40px 20px 30px; text-align: center;
+    font-size: 0.95rem; color: #888; border-top: 1px solid rgba(120,120,120,0.15);
+}
+html.dark .footer { border-top-color: rgba(0,122,204,0.2); color: #777; }
+.footer-content {
+    max-width: 1000px; margin: 0 auto; display: flex;
+    justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;
+}
+.social-links a { color: #888; margin-left: 18px; transition: all 0.3s; }
+.social-links a:hover { color: #007acc; transform: translateY(-3px); }
+html.dark .social-links a { color: #999; }
+html.dark .social-links a:hover { color: #4fc3f7; }
 
-@media (max-width:768px) {
+@media (max-width: 768px) {
     .hero h1 { font-size:3.8rem; }
     header { flex-direction:column; gap:24px; text-align:center; }
     nav a { margin:0 12px; }
+    .footer-content { flex-direction: column; }
+    .social-links a { margin: 0 12px; }
 }
