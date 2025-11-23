@@ -20,18 +20,52 @@ html.dark body {
     color: #e0e0e0;
 }
 
-/* КРАСНАЯ ТЕМА — ХАКЕРСКИЙ РЕЖИМ */
+/* КРАСНАЯ ТЕМА — МАКСИМАЛЬНЫЙ КИБЕРПАНК */
 html.red-theme body {
     background: linear-gradient(135deg, #1a0000 0%, #2d0008 40%, #000000 100%);
     background-attachment: fixed;
     color: #ff3333;
-    animation: shake 0.6s ease-in-out;
 }
 
 @keyframes shake {
     0%,100%{transform:translateX(0)}
     10%,30%,50%,70%,90%{transform:translateX(-10px)}
     20%,40%,60%,80%{transform:translateX(10px)}
+}
+
+/* ВСЁ ТЕКСТ (КРОМЕ 2025) — ОБФУСЦИРОВАННЫЙ КОД + ГЛИТЧ */
+html.red-theme h1,
+html.red-theme h2,
+html.red-theme h3,
+html.red-theme h4,
+html.red-theme p,
+html.red-theme li,
+html.red-theme a,
+html.red-theme span,
+html.red-theme .role,
+html.red-theme .date {
+    font-family: 'Courier New', monospace !important;
+    letter-spacing: 1px;
+    color: #ff1a1a !important;
+    text-shadow: 0 0 10px #ff0000;
+    animation: glitch 3s infinite alternate;
+}
+
+@keyframes glitch {
+    0%, 100% { text-shadow: 0 0 10px #ff0000; }
+    20% { text-shadow: 2px 2px 10px #ff0000, -2px -2px 10px #00ff00; }
+    40% { text-shadow: -2px 2px 10px #ff0000, 2px -2px 10px #00ffff; }
+    60% { text-shadow: 2px -2px 10px #ff0000, -2px 2px 10px #ffff00; }
+    80% { text-shadow: -2px -2px 10px #ff0000, 2px 2px 10px #ff00ff; }
+}
+
+/* 2025 — ОСТАЁТСЯ ЧИТАЕМЫМ */
+html.red-theme .footer p,
+html.red-theme .footer span {
+    font-family: 'Inter', sans-serif !important;
+    text-shadow: none !important;
+    animation: none !important;
+    color: #ff3333 !important;
 }
 
 html.red-theme .description { color: #ff6666; }
@@ -44,34 +78,34 @@ html.red-theme .hero h1 {
 }
 html.red-theme .button { background: #ff1a1a; box-shadow: 0 0 25px rgba(255,26,26,0.7); }
 html.red-theme .button:hover { background: #ff3333; transform: translateY(-4px) scale(1.08); }
-html.red-theme nav a { color: #ff6666; }
-html.red-theme nav a:hover, html.red-theme nav a.active { color: #ff1a1a; }
-html.red-theme .overlay a { color: #ff6666; }
-html.red-theme .social-links a:hover { color: #ff1a1a; }
 
-/* 1. КАРТОЧКА EXPERIENCE — ФОН #34050c */
+/* КАРТОЧКА EXPERIENCE — ТЁМНО-КРАСНЫЙ ФОН */
 html.red-theme .card {
     background: #34050c !important;
     border-color: #ff1a1a !important;
     box-shadow: 0 0 30px rgba(255, 0, 50, 0.4);
 }
 
-/* 2. В ФУТЕРЕ — "cracka" ТОЖЕ КРАСНЫЙ, КАК 2025 */
-html.red-theme .footer p {
-    color: #ff3333 !important;
-}
-html.red-theme .footer p span {
-    color: #ff3333 !important;
+/* ПОДЧЁРКИВАНИЕ У ССЫЛОК — КРАСНОЕ */
+html.red-theme nav a { color: #ff6666; }
+html.red-theme nav a:hover,
+html.red-theme nav a.active { color: #ff1a1a !important; }
+html.red-theme nav a::after,
+html.red-theme nav a:hover::after,
+html.red-theme nav a.active::after {
+    background: #ff1a1a !important;
 }
 
-/* 3. КНОПКА ЛУНА/СОЛНЦЕ — ПОЛНОСТЬЮ СКРЫТА В КРАСНОЙ ТЕМЕ */
+html.red-theme .overlay a { color: #ff6666; }
+html.red-theme .social-links a:hover { color: #ff1a1a; }
+
+/* СКРЫВАЕМ КНОПКУ ЛУНА/СОЛНЦЕ В КРАСНОЙ ТЕМЕ */
 html.red-theme .theme-toggle {
     opacity: 0 !important;
     pointer-events: none !important;
     transform: scale(0) !important;
 }
 
-/* Остальные фиксы из прошлого */
 html.red-theme header {
     background: rgba(40,0,0,0.6) !important;
     border-color: #ff1a1a !important;
@@ -84,7 +118,6 @@ html.red-theme .avatar {
 html.red-theme .footer {
     border-top: none !important;
     background: transparent;
-    color: #ff4444;
     padding-top: 60px;
 }
 
