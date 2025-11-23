@@ -1,4 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // MATRIX BOOT ANIMATION (запуск при загрузке)
+    const boot = document.getElementById('matrix-boot');
+    const code = document.querySelector('.matrix-code');
+
+    if (boot && code) {
+        const symbols = '01⊙⊗♠♣♥♦★☆⚡☢☠✈✇✎✓✕✖✚✜✠✡✢✤✦✧✩✪✫✬✭✮✯✰✱✲✳✴✵✶✷✸✹✺✻✼✽✾✿❀❁❂❃❄❅❆❇❈❉❊❋❌❍❎';
+        let lines = '';
+        for (let i = 0; i < 38; i++) {
+            let line = '';
+            for (let j = 0; j < 95; j++) {
+                line += symbols[Math.floor(Math.random() * symbols.length)];
+            }
+            lines += line + '\n';
+        }
+        code.textContent = lines;
+
+        // Убираем прелоадер через 2.4 секунды
+        setTimeout(() => {
+            boot.classList.add('loaded');
+        }, 2400);
+    }
+
+    // MATRIX CURSOR — только в красной теме
+    const html = document.documentElement;
+
+    const updateCursor = (e) => {
+        if (html.classList.contains('red-theme')) {
+            html.style.setProperty('--cursor-x', e.clientX + 'px');
+            html.style.setProperty('--cursor-y', e.clientY + 'px');
+        }
+    };
+
+    document.addEventListener('mousemove', updateCursor);
+
     // Анимации секций
     const sections = document.querySelectorAll('.animate-section');
     const observer = new IntersectionObserver((entries) => {
@@ -19,33 +53,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Загрузка темы
     if (localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
+        html.classList.add('dark');
     }
 
     // Кнопка луна/солнце
     document.getElementById('theme-toggle').addEventListener('click', () => {
-        document.documentElement.classList.toggle('dark');
-        document.documentElement.classList.remove('red-theme');
-        localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        html.classList.toggle('dark');
+        html.classList.remove('red-theme');
+        localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
     });
 
     // Клик по аватарке — красная тема + тряска
     document.getElementById('theme-avatar').addEventListener('click', () => {
-        const html = document.documentElement;
-
         if (html.classList.contains('red-theme')) {
-            // ВЫХОД — сразу в тёмную
+            // ВЫХОД из красной темы → в тёмную
             html.classList.remove('red-theme');
             html.classList.add('dark');
-            html.style.animation = 'shake 0.6s ease-in-out';
             localStorage.theme = 'dark';
         } else {
-            // ВХОД — красная тема
+            // ВХОД в красную тему
             html.classList.add('red-theme');
             html.classList.remove('dark');
-            html.style.animation = 'shake 0.6s ease-in-out';
         }
 
+        // Тряска при переключении
+        html.style.animation = 'shake 0.6s ease-in-out';
         setTimeout(() => { html.style.animation = ''; }, 700);
     });
 });
