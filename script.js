@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // === Анимации появления при скролле ===
+    // Анимации появления
     const sections = document.querySelectorAll('.animate-section');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -17,27 +17,28 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 
-    // === Подсветка активного пункта в навигации ===
+    // Подсветка активного пункта
     const navLinks = document.querySelectorAll('nav a');
-    
-    function setActiveLink() {
+    function setActive() {
         let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 150;
-            const sectionHeight = section.clientHeight;
-            if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-                current = section.getAttribute('id');
-            }
+        sections.forEach(s => {
+            if (window.pageYOffset >= s.offsetTop - 200) current = s.getAttribute('id');
         });
-
         navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
+            if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
         });
     }
+    window.addEventListener('scroll', setActive);
+    setActive();
 
-    window.addEventListener('scroll', setActiveLink);
-    setActiveLink(); // при загрузке
+    // ТЕМА
+    if (localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    }
+
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    });
 });
