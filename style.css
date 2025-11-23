@@ -20,6 +20,7 @@ html.dark body {
     color: #e0e0e0;
 }
 
+/* КРАСНАЯ ТЕМА — ХАКЕРСКИЙ РЕЖИМ */
 html.red-theme body {
     background: linear-gradient(135deg, #1a0000 0%, #2d0008 40%, #000000 100%);
     background-attachment: fixed;
@@ -43,21 +44,43 @@ html.red-theme .hero h1 {
 }
 html.red-theme .button { background: #ff1a1a; box-shadow: 0 0 25px rgba(255,26,26,0.7); }
 html.red-theme .button:hover { background: #ff3333; transform: translateY(-4px) scale(1.08); }
-html.red-theme .card { background: rgba(40,5,10,0.75); border-color: #ff3333; }
 html.red-theme nav a { color: #ff6666; }
 html.red-theme nav a:hover, html.red-theme nav a.active { color: #ff1a1a; }
 html.red-theme .overlay a { color: #ff6666; }
 html.red-theme .social-links a:hover { color: #ff1a1a; }
-html.red-theme .footer p span { color: #007acc; }
 
-/* ФИКСЫ ПО ТВОИМ СКРИНАМ */
-html.red-theme .theme-toggle {
+/* 1. КАРТОЧКА EXPERIENCE — ФОН #34050c */
+html.red-theme .card {
     background: #34050c !important;
     border-color: #ff1a1a !important;
-    box-shadow: 0 0 20px rgba(255, 26, 26, 0.5) !important;
+    box-shadow: 0 0 30px rgba(255, 0, 50, 0.4);
 }
-html.red-theme .theme-toggle svg { stroke: #ff3333 !important; }
 
+/* 2. В ФУТЕРЕ — "cracka" ТОЖЕ КРАСНЫЙ, КАК 2025 */
+html.red-theme .footer p {
+    color: #ff3333 !important;
+}
+html.red-theme .footer p span {
+    color: #ff3333 !important;
+}
+
+/* 3. КНОПКА ЛУНА/СОЛНЦЕ — ПОЛНОСТЬЮ СКРЫТА В КРАСНОЙ ТЕМЕ */
+html.red-theme .theme-toggle {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: scale(0) !important;
+}
+
+/* Остальные фиксы из прошлого */
+html.red-theme header {
+    background: rgba(40,0,0,0.6) !important;
+    border-color: #ff1a1a !important;
+    box-shadow: 0 0 40px rgba(255,0,50,0.6) !important;
+}
+html.red-theme .avatar {
+    border-color: #ff1a1a;
+    box-shadow: 0 0 25px rgba(255,0,50,0.8);
+}
 html.red-theme .footer {
     border-top: none !important;
     background: transparent;
@@ -91,18 +114,12 @@ html:not(.dark):not(.red-theme) header {
     box-shadow:0 8px 32px rgba(0,0,0,0.08), 0 0 30px rgba(100,160,255,0.12),
                inset 0 1px 0 rgba(255,255,255,0.6);
 }
-html.red-theme header {
-    background: rgba(40,0,0,0.6) !important;
-    border-color: #ff1a1a !important;
-    box-shadow: 0 0 40px rgba(255,0,50,0.6) !important;
-}
 
 .avatar {
     width:72px; height:72px; border-radius:50%; object-fit:cover;
     border:2px solid #007acc; transition:all .4s; cursor:pointer;
 }
 .avatar:hover, #theme-avatar:hover { transform:scale(1.15); }
-html.red-theme .avatar { border-color:#ff1a1a; box-shadow:0 0 25px rgba(255,0,50,0.8); }
 
 nav a { color:#b0c4de; text-decoration:none; margin-left:32px; font-weight:500;
     position:relative; transition:color .3s; }
@@ -132,7 +149,7 @@ html.dark h3, html.red-theme h3 { color:#fff; }
 
 .card { background:#fff; padding:32px; border-radius:14px; margin-bottom:40px;
     border:1px solid #dee2e6; transition:all .4s; box-shadow:0 4px 15px rgba(0,0,0,0.05); }
-html.dark .card, html.red-theme .card { background:rgba(15,22,38,0.8); border-color:rgba(0,122,204,0.3); }
+html.dark .card { background:rgba(15,22,38,0.8); border-color:rgba(0,122,204,0.3); }
 .card:hover { transform:translateY(-6px); box-shadow:0 20px 40px rgba(0,0,0,.15); border-color:#007acc; }
 
 .projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:30px; }
