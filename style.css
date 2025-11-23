@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior: smooth; transition: all 0.5s ease; }
-
 body {
     background: #f8f9fa;
     background-image: radial-gradient(circle at 25% 25%, #e9ecef 2px, transparent 0),
@@ -13,25 +11,21 @@ body {
     line-height: 1.6;
     transition: all 0.5s ease;
 }
-
 html.dark body {
     background: linear-gradient(135deg, #0a0e17 0%, #0d1526 50%, #0a1a2f 100%);
     background-attachment: fixed;
     color: #e0e0e0;
 }
-
 html.red-theme body {
     background: linear-gradient(135deg, #1a0000 0%, #2d0008 40%, #000000 100%);
     background-attachment: fixed;
     color: #ff3333;
 }
-
 @keyframes shake {
     0%,100%{transform:translateX(0)}
     10%,30%,50%,70%,90%{transform:translateX(-10px)}
     20%,40%,60%,80%{transform:translateX(10px)}
 }
-
 html.red-theme .description { color: #ff6666; }
 html.red-theme h3, html.red-theme .card h4 { color: #ff4444; }
 html.red-theme .title { color: #ff1a1a; }
@@ -48,40 +42,132 @@ html.red-theme nav a:hover, html.red-theme nav a.active { color: #ff1a1a; }
 html.red-theme nav a::after { background: #ff1a1a !important; }
 html.red-theme .overlay a { color: #ff6666; }
 html.red-theme .social-links a:hover { color: #ff1a1a; }
-
-/* ФУТЕР — В КРАСНОЙ ТЕМЕ ВСЁ КРАСНОЕ, НИКАКОГО СИНЕГО */
+/* ФУТЕР — В КРАСНОЙ ТЕМЕ ВСЁ КРАСНОЕ */
 html.red-theme .footer p { color: #ff3333 !important; }
-html.red-theme .footer p span { 
-    color: #ff1a1a !important; 
+html.red-theme .footer p span {
+    color: #ff1a1a !important;
     font-weight: 700 !important;
 }
-
 /* КНОПКА ЛУНА/СОЛНЦЕ — ИСЧЕЗАЕТ В КРАСНОЙ ТЕМЕ */
 html.red-theme .theme-toggle {
     opacity: 0 !important;
     pointer-events: none !important;
     transform: scale(0) !important;
 }
-
 /* ХЕДЕР И АВАТАРКА */
 html.red-theme header {
     background: rgba(40,0,0,0.6) !important;
     border-color: #ff1a1a !important;
     box-shadow: 0 0 40px rgba(255,0,50,0.6) !important;
 }
-html.red-theme .avatar { 
-    border-color:#ff1a1a; 
-    box-shadow:0 0 25px rgba(255,0,50,0.8); 
+html.red-theme .avatar {
+    border-color:#ff1a1a;
+    box-shadow:0 0 25px rgba(255,0,50,0.8);
 }
-html.red-theme .footer { 
-    border-top: none !important; 
-    background: transparent; 
-    padding-top: 60px; 
+html.red-theme .footer {
+    border-top: none !important;
+    background: transparent;
+    padding-top: 60px;
 }
 
-/* Остальные стили (не трогаем) */
+/* ========================================
+   НОВАЯ ФИЧА: MATRIX BOOT ANIMATION
+   ======================================== */
+#matrix-boot {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 9999;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 0.9s ease-out;
+    pointer-events: none;
+}
+
+.matrix-code {
+    font-family: 'Courier New', monospace;
+    font-size: 15px;
+    color: #0f8;
+    line-height: 1.4;
+    white-space: pre;
+    text-shadow: 0 0 15px #0f0;
+    opacity: 0.85;
+}
+
+.scanline {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(transparent, rgba(0,255,0,0.5), transparent);
+    animation: scan 3.2s linear infinite;
+}
+
+@keyframes scan {
+    0% { top: -20%; }
+    100% { top: 120%; }
+}
+
+#matrix-boot.loaded {
+    opacity: 0;
+}
+
+/* ========================================
+   НОВАЯ ФИЧА: MATRIX CURSOR (только в red-theme)
+   ======================================== */
+html.red-theme {
+    cursor: none !important;
+}
+
+/* Красный треугольный курсор */
+html.red-theme::before {
+    content: '';
+    position: fixed;
+    left: var(--cursor-x, 0px);
+    top: var(--cursor-y, 0px);
+    width: 26px;
+    height: 38px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 18" fill="%23ff0044"><path d="M0 0l6 18 6-18z"/></svg>') center/contain no-repeat;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0 0 14px #ff0000);
+    animation: cursorPulse 1.4s infinite;
+    transition: left 0s linear, top 0s linear;
+}
+
+@keyframes cursorPulse {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; filter: drop-shadow(0 0 22px #ff0000); }
+}
+
+/* Падающий красный дождь */
+html.red-theme::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 99998;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 40px,
+        rgba(255,0,68,0.06) 40px,
+        rgba(255,0,68,0.06) 80px
+    );
+    animation: matrixRain 14s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes matrixRain {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 1200px; }
+}
+
+/* Остальные стили без изменений */
 .container { max-width:1000px; margin:0 auto; padding:40px 20px; }
-
 header {
     display:flex; justify-content:space-between; align-items:center;
     margin-bottom:100px; position:sticky; top:20px; z-index:100;
@@ -108,30 +194,24 @@ html:not(.dark):not(.red-theme) header {
 }
 .avatar { width:72px; height:72px; border-radius:50%; object-fit:cover; border:2px solid #007acc; transition:all .4s; cursor:pointer; }
 .avatar:hover, #theme-avatar:hover { transform:scale(1.15); }
-
 nav a { color:#b0c4de; text-decoration:none; margin-left:32px; font-weight:500; position:relative; transition:color .3s; }
 html:not(.dark):not(.red-theme) nav a { color:#6c757d; }
 nav a:hover, nav a.active { color:#007acc; }
 nav a::after { content:''; position:absolute; width:0; height:2px; bottom:-8px; left:50%; background:#007acc; transition:all .3s; }
 nav a:hover::after, nav a.active::after { width:100%; left:0; }
 html.red-theme nav a::after, html.red-theme nav a:hover::after { background:#ff1a1a !important; }
-
 .hero { text-align:center; margin-bottom:140px; }
 .hero h1 { font-size:5.5rem; font-weight:700; margin-bottom:.4rem; background:linear-gradient(90deg,#333,#666); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
 html.dark .hero h1 { background:linear-gradient(90deg,#fff,#a0c4ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-
 .title { font-size:2.1rem; color:#007acc; margin-bottom:1.8rem; }
 .description { max-width:720px; margin:0 auto 2.5rem; font-size:1.15rem; color:#6c757d; }
 .button { display:inline-block; background:#007acc; color:#fff; padding:14px 36px; border-radius:50px; text-decoration:none; font-weight:600; transition:all .3s; }
 .button:hover { background:#005a99; transform:translateY(-3px) scale(1.05); box-shadow:0 10px 30px rgba(0,122,204,.4); }
-
 h3 { font-size:2.6rem; margin-bottom:50px; color:#333; }
 html.dark h3, html.red-theme h3 { color:#fff; }
-
 .card { background:#fff; padding:32px; border-radius:14px; margin-bottom:40px; border:1px solid #dee2e6; transition:all .4s; box-shadow:0 4px 15px rgba(0,0,0,0.05); }
 html.dark .card { background:rgba(15,22,38,0.8); border-color:rgba(0,122,204,0.3); }
 .card:hover { transform:translateY(-6px); box-shadow:0 20px 40px rgba(0,0,0,.15); border-color:#007acc; }
-
 .projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:30px; }
 .project-card { position:relative; overflow:hidden; border-radius:14px; height:360px; transition:all .4s; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
 .project-card:hover { transform:scale(1.03); box-shadow:0 20px 50px rgba(0,0,0,0.2); }
@@ -140,7 +220,6 @@ html.dark .card { background:rgba(15,22,38,0.8); border-color:rgba(0,122,204,0.3
 .overlay { position:absolute; inset:0; background:linear-gradient(transparent 0%, rgba(0,0,0,0.78) 70%); display:flex; flex-direction:column; justify-content:end; padding:40px 28px; color:#fff; transition:padding .4s; }
 .overlay a { color:#007acc; font-weight:600; text-decoration:none; }
 .overlay a:hover { text-decoration:underline; }
-
 .theme-toggle {
     position:fixed; top:20px; right:20px; z-index:999;
     background:rgba(255,255,255,0.95); border:1.5px solid rgba(0,0,0,0.12);
@@ -159,7 +238,10 @@ html.dark .theme-toggle .sun { opacity:0; transform:rotate(-90deg); }
 .theme-toggle:hover { transform:scale(1.12); }
 .footer { margin-top:140px; padding:40px 20px 30px; text-align:center; font-size:0.95rem; color:#888; border-top:1px solid rgba(120,120,120,0.15); }
 html.dark .footer { border-top-color:rgba(0,122,204,0.2); color:#777; }
-.footer-content { max-width:1000px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; }
+.footer-content { 
+    max-width:1000px; margin:0 auto; display:flex; justify-content:space-between; 
+    align-items:center; flex-wrap:wrap; gap:20px; 
+}
 .social-links a { color:#888; margin-left:18px; transition:all .3s; }
 .social-links a:hover { color:#007acc; transform:translateY(-3px); }
 
