@@ -1,7 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+/* Доступность: skip link */
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.skip-link:focus {
+    position: fixed;
+    left: 16px;
+    top: 16px;
+    width: auto;
+    height: auto;
+    padding: 10px 14px;
+    background: #007acc;
+    color: #fff;
+    border-radius: 8px;
+    z-index: 1000;
+}
+
 * { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; transition: all 0.5s ease; }
+html { scroll-behavior: smooth; transition: color 0.5s ease, background-color 0.5s ease; }
 
 body {
     background: #f8f9fa;
@@ -11,7 +33,17 @@ body {
     color: #333;
     font-family: 'Inter',sans-serif;
     line-height: 1.6;
-    transition: all 0.5s ease;
+    transition: color 0.5s ease, background-color 0.5s ease;
+}
+
+/* Уменьшить анимации при prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    * { 
+        animation-duration: 0.01ms !important; 
+        animation-iteration-count: 1 !important; 
+        transition-duration: 0.01ms !important; 
+        scroll-behavior: auto !important; 
+    }
 }
 
 html.dark body {
