@@ -1,7 +1,7 @@
 import routes from "@/consts/routes";
 import MediaIcon from "./MediaIcon";
 
-const paths = ["/", "/projects", "/about-me"]
+const paths = ["/", "/about-me"]
 
 export default (t) => {
     return /*html*/ `
@@ -11,7 +11,7 @@ export default (t) => {
             <div class="media-header">
                 <span class="media-header__line"></span>
                 <div class="media-header__links">
-                    ${["discord", "github", "email"]
+                    ${["telegram", "github", "email"]
                         .map((name) => MediaIcon({ name }))
                         .join("")}
                 </div>
@@ -22,7 +22,7 @@ export default (t) => {
 
                 <div class="header__inner">
                     <a class="logo" href="/">
-                        <img class="logo__img" src="/images/logo.svg" alt="Elias logo">
+                        <img class="logo__img" src="/images/logo.svg" alt="cracka logo">
                         <span class="logo__name">cracka</span>
                     </a>
                     <div class="header__links">
