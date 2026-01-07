@@ -5,8 +5,8 @@ const media = {
     id: "1126114403788541983",
     tag: "scamnut",
     },
-    telegram: "https://t.me/UnRezolved",
-    github: "https://github.com/crackalove",
+    telegram: "UnRezolved",
+    github: "crackalove",
     email: "crackacodes@gmail.com"
 };
 
