@@ -1,5 +1,3 @@
-import proxy from "../proxies/media"
-
 const media = {
     discord: {
     id: "1126114403788541983",
@@ -7,8 +5,8 @@ const media = {
     },
     telegram: "https://t.me/UnRezolved",
     github: "https://github.com/crackalove",
-    email: "crackacodes@gmail.com"
+    email: "mailto:crackacodes@gmail.com"
 };
 
-export default new Proxy(media, proxy);
+export default media;
 

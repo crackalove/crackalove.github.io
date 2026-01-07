@@ -49,7 +49,7 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpa
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _proxies_media__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../proxies/media */ \"./src/app/proxies/media.js\");\n\r\n\r\nconst media = {\r\n    discord: {\r\n    id: \"1126114403788541983\",\r\n    tag: \"scamnut\",\r\n    },\r\n    telegram: \"https://t.me/UnRezolved\",\r\n    github: \"https://github.com/crackalove\",\r\n    email: \"crackacodes@gmail.com\"\r\n};\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Proxy(media, _proxies_media__WEBPACK_IMPORTED_MODULE_0__[\"default\"]));\r\n\r\n\n\n//# sourceURL=webpack://portfolio/./src/app/consts/media.js?\n}");
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst media = {\r\n    discord: {\r\n    id: \"1126114403788541983\",\r\n    tag: \"scamnut\",\r\n    },\r\n    telegram: \"https://t.me/UnRezolved\",\r\n    github: \"https://github.com/crackalove\",\r\n    email: \"mailto:crackacodes@gmail.com\"\r\n};\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (media);\r\n\r\n\n\n//# sourceURL=webpack://portfolio/./src/app/consts/media.js?\n}");
 
 /***/ },
 
@@ -61,17 +61,6 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpa
 
 "use strict";
 eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\r\n/**\r\n * @type {import(\"../../types/Routes\").Routes}\r\n */\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({\r\n    \"/\": {\r\n        name: \"home\",\r\n        element: \"Home\",\r\n    },\r\n    \"/projects\": {\r\n        name: \"projects\",\r\n        element: \"Projects\",\r\n    },\r\n    \"/about-me\": {\r\n        name: \"about\",\r\n        element: \"About\",\r\n    },\r\n    \"/404\": {\r\n        name: \"404\",\r\n        element: \"PageNotFound\",\r\n    },\r\n    \r\n    // \"/contacts\": {\r\n    //     name: \"contacts\",\r\n    //     element: \"Contacts\",\r\n    // },\r\n});\n\n//# sourceURL=webpack://portfolio/./src/app/consts/routes.js?\n}");
-
-/***/ },
-
-/***/ "./src/app/consts/websites.js"
-/*!************************************!*\
-  !*** ./src/app/consts/websites.js ***!
-  \************************************/
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({\r\n    discord: \"discord.com/users/\",\r\n    github: \"github.com/\",\r\n    figma: \"figma.com/@\",\r\n    replit: \"replit.com/@\",\r\n    stackOverflow: \"stackoverflow.com/users/\",\r\n    codewars: \"codewars.com/users/\",\r\n    devTo: \"dev.to/\",\r\n    cssBattle: \"cssbattle.dev/player/\",\r\n    codepen: \"codepen.io/\",\r\n    dribble: \"dribbble.com/\",\r\n    email: \"mailto:\"\r\n});\n\n//# sourceURL=webpack://portfolio/./src/app/consts/websites.js?\n}");
 
 /***/ },
 
@@ -127,17 +116,6 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpa
 
 "use strict";
 eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _views_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./views/Layout */ \"./src/app/views/Layout.js\");\n/* harmony import */ var _consts_routes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./consts/routes */ \"./src/app/consts/routes.js\");\n/* harmony import */ var _helpers_startTitleAnimation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/startTitleAnimation */ \"./src/app/helpers/startTitleAnimation.js\");\n/* harmony import */ var _helpers_localeHandler__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./helpers/localeHandler */ \"./src/app/helpers/localeHandler.js\");\n/* harmony import */ var _helpers_loadCssFile__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./helpers/loadCssFile */ \"./src/app/helpers/loadCssFile.js\");\n/* harmony import */ var _helpers_replacePath__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./helpers/replacePath */ \"./src/app/helpers/replacePath.js\");\n/* harmony import */ var styles_styles_sass__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! styles/styles.sass */ \"./src/assets/styles/styles.sass\");\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nconst rootId = \"root\";\r\nasync function render() {\r\n    const path = _consts_routes__WEBPACK_IMPORTED_MODULE_1__[\"default\"][window.location.pathname] ?? _consts_routes__WEBPACK_IMPORTED_MODULE_1__[\"default\"][\"/404\"];\r\n\r\n    (0,_helpers_loadCssFile__WEBPACK_IMPORTED_MODULE_4__[\"default\"])(path.name);\r\n    (0,_helpers_startTitleAnimation__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(path.name);\r\n\r\n    document.getElementById(rootId).innerHTML = await (0,_views_Layout__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(\r\n        (\r\n            await __webpack_require__(\"./src/app/views lazy recursive ^\\\\.\\\\/.*$\")(`./${path.element}`)\r\n        ).default,\r\n        path\r\n    );\r\n}\r\n\r\n(0,_helpers_replacePath__WEBPACK_IMPORTED_MODULE_5__[\"default\"])()\r\n    .then(() => render())\r\n    .then(() => (0,_helpers_localeHandler__WEBPACK_IMPORTED_MODULE_3__[\"default\"])());\r\n\n\n//# sourceURL=webpack://portfolio/./src/app/index.js?\n}");
-
-/***/ },
-
-/***/ "./src/app/proxies/media.js"
-/*!**********************************!*\
-  !*** ./src/app/proxies/media.js ***!
-  \**********************************/
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _consts_websites__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../consts/websites */ \"./src/app/consts/websites.js\");\n\r\n\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({\r\n    get(target, name) {\r\n        if (name === \"emailRaw\") \r\n            return target.email\r\n        \r\n        if (name === \"discord\") return `https://${_consts_websites__WEBPACK_IMPORTED_MODULE_0__[\"default\"].discord}${target.discord.id}`\r\n        if (name === \"discordTag\") return target.discord.tag\r\n\r\n        return `${name === \"email\" ? \"\" : \"https://\"}${_consts_websites__WEBPACK_IMPORTED_MODULE_0__[\"default\"][name] ?? \"\"}${target[name]}`\r\n    }\r\n});\n\n//# sourceURL=webpack://portfolio/./src/app/proxies/media.js?\n}");
 
 /***/ },
 
@@ -239,7 +217,7 @@ eval("{__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-ext
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "js/" + {"src_app_views_About_js":"58b2c19444815e02c309","src_app_views_Contacts_js":"45e5513c30ceb09ab837","src_app_views_Home_js":"7d8c53e002cffd2d9491","src_app_views_PageNotFound_js":"aeef2b0b2a336e260d61","src_app_views_Projects_js":"980d92de5a42fb6c5a19"}[chunkId] + ".js";
+/******/ 			return "js/" + {"src_app_views_About_js":"58b2c19444815e02c309","src_app_views_Contacts_js":"45e5513c30ceb09ab837","src_app_views_Home_js":"9ca4f12c32f30fb58721","src_app_views_PageNotFound_js":"aeef2b0b2a336e260d61","src_app_views_Projects_js":"3ccc707f35d0fe82fd4c"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
