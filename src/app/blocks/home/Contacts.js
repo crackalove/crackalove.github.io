@@ -7,7 +7,7 @@ const contacts = [
     },
     {
         name: "email",
-        text: media.emailRaw,
+        text: "crackacodes@gmail.com",
     }
 ];
 

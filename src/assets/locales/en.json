@@ -27,6 +27,11 @@
             "link": "https://t.me/ReChamo"
         }
     },
+        "techs": {
+        "reverse": "Reverse Engineering",
+        "malware": "Malware Analysis",
+        "infosec": "Information Security"
+    },
     "pages": {
         "home": {
             "hero": {

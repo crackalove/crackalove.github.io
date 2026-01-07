@@ -5,16 +5,17 @@ import Skills from "@/blocks/home/Skills.js";
 import About from "@/blocks/home/About.js";
 import Contacts from "@/blocks/home/Contacts.js";
 
-import "styles/pages/home.sass"
-
+import "styles/pages/home.sass";
 
 export default (t, locale) => {
+    const home = t.pages.home;
+
     return /*html*/`
-        ${Hero(t.hero)}
-        ${Quote(t.quote)}
-        ${Projects(t.projects, locale.projects)}
-        ${Skills(t.skills, locale.skills)}
-        ${About(t.about)}
-        ${Contacts(t.contacts)}
+        ${Hero(home.hero)}
+        ${Quote(home.quote)}
+        ${Projects(home.projects, locale.projects)}
+        ${Skills(home.skills, locale.skills)}
+        ${About(home.about)}
+        ${Contacts(home.contacts)}
     `;
 };

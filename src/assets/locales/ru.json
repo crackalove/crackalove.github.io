@@ -27,6 +27,11 @@
       "link": "https://t.me/ReChamo"
     }
   },
+    "techs": {
+    "reverse": "Реверс-инжиниринг",
+    "malware": "Анализ вредонсного ПО",
+    "infosec": "Информационная безопасность"
+  },
     "pages": {
         "home": {
             "hero": {

@@ -42,7 +42,7 @@ export default {
     deno: "Deno",
     pixijs: "PixiJS",
     preact: "Preact",
-    infosec: "Information Security",
-    malware: "Malware Analysis",
-    "reverse-engineering": "Reverse Engineering"
+    infosec: "infosec",
+    malware: "malware",
+    reverse: "reverse"
 }

@@ -26,7 +26,12 @@
       "status": "active",
       "link": "https://t.me/ReChamo"
     }
-  },
+    },
+      "techs": {
+      "reverse": "Реверс-інжиніринг",
+      "malware": "Аналіз шкідливого ПЗ",
+      "infosec": "Інформаційна безпека"
+    },
     "pages": {
         "home": {
             "hero": {

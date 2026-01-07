@@ -44,7 +44,7 @@ export default ({ id }, t) => {
                 ${projectTech
                     .map(
                         (tech) =>
-                            /*html*/ `<li class="project__tech">${techs[tech]}</li>`
+                            /*html*/ `<li class="project__tech">${t.techs[techs[tech]]}</li>`
                     )
                     .join("")}
             </ul> 
