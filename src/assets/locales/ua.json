@@ -56,13 +56,6 @@
                 "donate": "Підтримавши"
             }
         },
-        "projects": {
-            "description": "Мої проекти",
-            "decent": "",
-            "small": "",
-            "inProgress": ""
-
-        },
         "about": {
             "description": "Хто я",
             "about": {
