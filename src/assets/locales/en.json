@@ -21,6 +21,9 @@
         "rechamo": {
             "name": "ReChamo",
             "description": "reverse engineering and cybersecurity research hub",
+            "type": "research",
+            "year": "2026",
+            "status": "active",
             "link": "https://t.me/ReChamo"
         }
     },
@@ -43,7 +46,8 @@
                 "title": "skills"
             },
             "about": {
-                "title": "about",
+                "title": "about-me",
+                "button": "Read more",
                 "description": [
                     "interested in how software behaves beyond its intended use, including security research and reverse engineering. ",
                     "actively learning python and c++, and exploring different aspects of software development and system design."
