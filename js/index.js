@@ -49,7 +49,7 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpa
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _proxies_media__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../proxies/media */ \"./src/app/proxies/media.js\");\n\r\n\r\nconst media = {\r\n    discord: {\r\n    id: \"1126114403788541983\",\r\n    tag: \"scamnut\",\r\n    },\r\n    telegram: \"UnRezolved\",\r\n    github: \"crackalove\",\r\n    email: \"crackacodes@gmail.com\"\r\n};\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Proxy(media, _proxies_media__WEBPACK_IMPORTED_MODULE_0__[\"default\"]));\r\n\r\n\n\n//# sourceURL=webpack://portfolio/./src/app/consts/media.js?\n}");
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _proxies_media__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../proxies/media */ \"./src/app/proxies/media.js\");\n\r\n\r\nconst media = {\r\n    discord: {\r\n    id: \"1126114403788541983\",\r\n    tag: \"scamnut\",\r\n    },\r\n    telegram: \"https://t.me/UnRezolved\",\r\n    github: \"https://github.com/crackalove\",\r\n    email: \"crackacodes@gmail.com\"\r\n};\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Proxy(media, _proxies_media__WEBPACK_IMPORTED_MODULE_0__[\"default\"]));\r\n\r\n\n\n//# sourceURL=webpack://portfolio/./src/app/consts/media.js?\n}");
 
 /***/ },
 
@@ -239,7 +239,7 @@ eval("{__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-ext
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "js/" + {"src_app_views_About_js":"3639d41567191a51c3e3","src_app_views_Contacts_js":"45e5513c30ceb09ab837","src_app_views_Home_js":"ddfd9f61021328946de9","src_app_views_PageNotFound_js":"aeef2b0b2a336e260d61","src_app_views_Projects_js":"34986a0cda9595b81d30"}[chunkId] + ".js";
+/******/ 			return "js/" + {"src_app_views_About_js":"58b2c19444815e02c309","src_app_views_Contacts_js":"45e5513c30ceb09ab837","src_app_views_Home_js":"7d8c53e002cffd2d9491","src_app_views_PageNotFound_js":"aeef2b0b2a336e260d61","src_app_views_Projects_js":"980d92de5a42fb6c5a19"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
