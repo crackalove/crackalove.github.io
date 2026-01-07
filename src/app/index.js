@@ -23,5 +23,5 @@ async function render() {
 }
 
 replacePath()
-    .then(() => render())
-    .then(() => localeHandler());
+    .then(() => localeHandler())
+    .then(() => render());
