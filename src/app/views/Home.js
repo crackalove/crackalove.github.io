@@ -8,14 +8,14 @@ import Contacts from "@/blocks/home/Contacts.js";
 import "styles/pages/home.sass";
 
 export default (t, locale) => {
-    const home = t.pages.home;
+    if (!t) return "";
 
     return /*html*/`
-        ${Hero(home.hero)}
-        ${Quote(home.quote)}
-        ${Projects(home.projects, locale.projects)}
-        ${Skills(home.skills, locale.skills)}
-        ${About(home.about)}
-        ${Contacts(home.contacts)}
+        ${Hero(t.hero)}
+        ${Quote(t.quote)}
+        ${Projects(t.projects, locale.projects)}
+        ${Skills(t.skills, locale.skills)}
+        ${About(t.about)}
+        ${Contacts(t.contacts)}
     `;
 };
