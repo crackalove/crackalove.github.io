@@ -4,28 +4,25 @@ import techs from "@/consts/techs";
 import media from "@/consts/media";
 
 function mapLinks(links) {
-    function map(link) {
-        let href = links[link];
+    return Object.entries(links)
+        .map(([name, value]) => {
+            let href = value;
 
-        if (!href.startsWith("http")) {
-            if (link === "figma") {
-                href = `https://figma.com/community/file/${links[link]}`;
-            } else if (link === "github" && links[link].startsWith("/")) {
-                href = media.github + links[link];
-            } else if (websites[link]) {
-                href = "https://" + websites[link] + links[link];
+            if (!href.startsWith("http")) {
+                if (name === "figma") {
+                    href = `https://figma.com/community/file/${value}`;
+                } else if (name === "github" && value.startsWith("/")) {
+                    href = media.github + value;
+                } else {
+                    href = "https://" + value;
+                }
             }
-        }
 
+            const label = name[0].toUpperCase() + name.slice(1);
 
-
-        const className = link === "cached" ? "button__secondary" : "";
-        const name = `${link[0].toUpperCase()}${link.slice(1)}`;
-
-        return /*html*/ `<a href="${href}" class="button ${className}">${name} =></a>`;
-    }
-
-    return Object.keys(links).map(map).join("");
+            return `<a href="${href}" class="button">${label} =></a>`;
+        })
+        .join("");
 }
 
 export default ({ id }, t) => {
